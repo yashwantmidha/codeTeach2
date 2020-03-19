@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">codeTeach</string>
+
+    <string name="todo">TODO</string>
+    <string name="code_teach">Code-Teach</string>
+    <string name="button">Login</string>
+    <string name="google_status_fmt">connected</string>
+</resources>

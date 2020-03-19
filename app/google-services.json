@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "206726641325",
+    "firebase_url": "https://codeteach-b0726.firebaseio.com",
+    "project_id": "codeteach-b0726",
+    "storage_bucket": "codeteach-b0726.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206726641325:android:ce0945391391564669f824",
+        "android_client_info": {
+          "package_name": "com.yashwant.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206726641325-lbo64skut5ifjpsrd49h8o3clkq62l5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm-kZWVPZZOJS7CrcbhGn0cvhQ0nW_jXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206726641325-lbo64skut5ifjpsrd49h8o3clkq62l5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
