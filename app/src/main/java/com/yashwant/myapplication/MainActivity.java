@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+//Missing
 
                             //DocumentReference alovelaceDocumentRef = db.document("users/" + user.getEmail());
                              Map<String, Object> user1 = new HashMap<>();
