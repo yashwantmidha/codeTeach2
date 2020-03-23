@@ -21,6 +21,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
@@ -30,7 +32,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -149,6 +155,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
+                            //DocumentReference alovelaceDocumentRef = db.document("users/" + user.getEmail());
+                             Map<String, Object> user1 = new HashMap<>();
+                            user1.put("EMAIL", user.getEmail());
+                            user1.put("NAME", user.getDisplayName());
+
+// Add a new document with a generated ID
+                            db.collection("users").document(user.getEmail())
+                                    .set(user1)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Intent intent = new Intent(MainActivity.this , dash.class);
+                                    Log.d(TAG, "DocumentSnapshot successfully written!");
+                                    //intent.putExtra("email",);
+                                    startActivity(intent);
+                                }
+                            })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w(TAG, "Error writing document", e);
+                                        }
+                                    });
                             logo.setText(user.getEmail());
 
                         } else {
